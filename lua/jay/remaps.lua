@@ -101,4 +101,11 @@ end
 -- Set up a key mapping for the function
 vim.keymap.set('n', '<leader>dq', copy_diagnostics_to_qflist, { noremap = true, silent = true, desc = "Copy diagnostics to quickfix list" })
 
+-- directory navigation
 require("jay.dir_nav")
+
+-- Visual mode mapping to select all lines
+vim.api.nvim_set_keymap('v', 'ae', ':<C-U>normal! ggVG<CR>', { noremap = true, silent = true })
+
+-- Operator-pending mode mapping for 'ae' motion
+vim.api.nvim_set_keymap('o', 'ae', ':normal Vae<CR>', { noremap = true, silent = true })
